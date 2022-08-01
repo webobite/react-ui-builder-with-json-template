@@ -1,0 +1,32 @@
+{
+  "0": {
+    "component": "Header",
+    "label": "header",
+    "props": {
+      "title": "Header - TEST TEMPLATE 1",
+      "extraProps": {
+        "loading": false
+      }
+    }
+  },
+  "1": {
+    "component": "Body",
+    "label": "body",
+    "props": {
+      "title": "body - TEST TEMPLATE 1",
+      "extraProps": {
+        "loading": false
+      }
+    }
+  },
+  "2": {
+    "component": "Footer",
+    "label": "footer",
+    "props": {
+      "title": "Footer - TEST TEMPLATE 1",
+      "extraProps": {
+        "loading": false
+      }
+    }
+  }
+}
