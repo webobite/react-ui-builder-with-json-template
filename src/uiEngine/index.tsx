@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "../components/styleComponents/Grid";
 import { GET_ALL_COMPONENTS } from "../utils/componentConfigs";
 
-interface IRootElement {}
+interface ICanvas {}
 
 /**
  * 1. parse the layout JSON
@@ -11,9 +11,9 @@ interface IRootElement {}
  * TODO: Fix the css className bug in the UI
  */
 
-const RootElement = (props: IRootElement) => {
-  let children = <h1>SUBHAM</h1>;
+const Canvas = (props: ICanvas) => {
+  let children = [<h1>SUBHAM</h1>, <h3>Singh</h3>];
   return React.createElement(Grid, { children: children });
 };
 
-export default RootElement;
+export default Canvas;

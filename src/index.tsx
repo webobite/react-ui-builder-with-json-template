@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GET_ALL_COMPONENTS } from './utils/componentConfigs';
-import RootElement from './uiEngine';
+import Canvas from './uiEngine';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,7 +15,11 @@ const root = ReactDOM.createRoot(
 //   </React.StrictMode>
 // );
 
-root.render(<RootElement />)
+root.render(
+  <React.StrictMode>
+    <Canvas />
+  </React.StrictMode>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
