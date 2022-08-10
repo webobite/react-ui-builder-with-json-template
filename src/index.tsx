@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GET_ALL_COMPONENTS } from './utils/componentConfigs';
 import Canvas from './uiEngine';
+import { uiJson } from './utils';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,7 +18,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Canvas />
+    <Canvas getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} />
   </React.StrictMode>
 );
 

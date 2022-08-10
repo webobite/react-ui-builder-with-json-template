@@ -1,0 +1,23 @@
+[
+  {
+    "name": "progress",
+    "value": "50%"
+  },
+  {
+    "name": "text",
+    "value": "The first problem title"
+  },
+  {
+    "name": "image",
+    "value": ".image/some.png"
+  },
+  {
+    "name": "multiple_choice",
+    "value": {
+      "option1": "First Choice",
+      "option2": "2 Choice",
+      "option3": "3 Choice",
+      "option4": "4 Choice"
+    }
+  }
+]

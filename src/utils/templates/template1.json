@@ -1,22 +1,58 @@
 {
-  "0": {
-    "component": "Header",
-    "label": "header",
-    "config": {
-      "height" : {
-        "value": 20,
-        "unit": "%"
-      },
-      "width" : {
-        "value": 100,
-        "unit": "%"
-      }
-    },
-    "props": {
-      "title": "Header - TEST TEMPLATE 1",
-      "extraProps": {
-        "loading": false
-      }
+  "template": "simple",
+  "renderer": "simple_v1",
+  "header": {
+    "layout": {
+      "name": "horizontal",
+      "renderer": "horizontal_v1",
+      "components": [
+        {
+          "name": "progress",
+          "type": "custom",
+          "renderer": "progress_v1"
+        }
+      ]
+    }
+  },
+  "body": {
+    "layout": {
+      "name": "verical",
+      "renderer": "vertical_v1",
+      "components": [
+        {
+          "name": "text",
+          "type": "p",
+          "renderer": "text_v1"
+        },
+        {
+          "name": "image",
+          "type": "img",
+          "renderer": "image_v1"
+        },
+        {
+          "name": "multiple_choice",
+          "type": "custom",
+          "renderer": "multiple_choice_v1"
+        }
+      ]
+    }
+  },
+  "footer": {
+    "layout": {
+      "name": "horizontal",
+      "renderer": "horizontal_v1",
+      "components": [
+        {
+          "name": "next",
+          "type": "button",
+          "renderer": "next_v1"
+        },
+        {
+          "name": "skip",
+          "type": "button",
+          "renderer": "skip_v1"
+        }
+      ]
     }
   }
 }
