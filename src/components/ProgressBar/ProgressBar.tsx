@@ -9,13 +9,14 @@ interface IProgressBar {
    */
   value: number;
   variant: LinearProgressProps["variant"];
+  color: LinearProgressProps["color"];
 }
 
 const ProgressBar = (props: IProgressBar) => {
-  const { value, variant } = props;
+  const { value, variant, color } = props;
   return (
     <div className="progress-bar-wrapper">
-      <LinearProgress variant={variant} value={value} />
+      <LinearProgress variant={variant} value={value} color={color} />
     </div>
   );
 };

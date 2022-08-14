@@ -1,4 +1,12 @@
-import React from "react";
+import {
+  Box,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Input,
+  Radio,
+} from "@material-ui/core";
+import React, { useState } from "react";
 import "./multipleChoice.css";
 
 interface IChoiceOption {
@@ -7,11 +15,67 @@ interface IChoiceOption {
 }
 
 interface IMultipleChoiceProps {
-  type: "input" | "checkbox" | "radio";
+  type: "checkbox" | "radio";
   options: IChoiceOption[];
 }
+
 const MultipleChoice = (props: IMultipleChoiceProps) => {
-  return <div className="multiplechoice-wrap"></div>;
+  const { type, options } = props;
+
+  const [value, setvalue] = useState("");
+
+  const renderOptionWithType = (
+    optionLabel: string,
+    optionValue: string,
+    type: "checkbox" | "radio"
+  ) => {
+    switch (type) {
+      case "checkbox":
+        return (
+          <Box>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  className="option-checkbox"
+                />
+              }
+              label={optionLabel}
+              value={optionValue}
+              onChange={(value) => console.log("value :::", value)}
+            />
+          </Box>
+        );
+        break;
+      case "radio":
+        return (
+          <Box>
+            <FormControlLabel
+              control={
+                <Radio
+                  className="option-radio"
+                />
+              }
+              label={optionLabel}
+              value={optionValue}
+              onChange={(value) => console.log("value :::", value)}
+            />
+          </Box>
+        );
+        break;
+    }
+  };
+
+  const renderAllOptions = (options: IChoiceOption[]) => {
+    return options.map((option, index) => (
+      <div className="mcq-option" key={index}>
+        <FormGroup>
+          {renderOptionWithType(option.label, option.value, type)}
+        </FormGroup>
+      </div>
+    ));
+  };
+
+  return <div className="multiplechoice-wrap">{renderAllOptions(options)}</div>;
 };
 
 export default MultipleChoice;
