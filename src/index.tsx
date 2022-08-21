@@ -1,24 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GET_ALL_COMPONENTS } from './utils/componentConfigs';
+import { componentProps, uiJson } from './utils';
 import Canvas from './uiEngine';
-import { uiJson } from './utils';
+// import Canvas from './uiEngine/Canvas';
 
-const root = ReactDOM.createRoot(
+const root = createRoot(
   document.getElementById('root') as HTMLElement
 );
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
 
 root.render(
   <React.StrictMode>
-    <Canvas getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} />
+    <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} />
   </React.StrictMode>
 );
 
