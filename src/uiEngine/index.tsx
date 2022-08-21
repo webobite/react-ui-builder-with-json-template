@@ -2,7 +2,6 @@ import React from "react";
 import Body from "../components/Body";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Grid from "../components/styleComponents/Grid";
 
 interface ICanvas {
   getComponent: any;

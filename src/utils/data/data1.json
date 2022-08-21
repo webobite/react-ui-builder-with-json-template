@@ -19,5 +19,13 @@
       "option3": "3 Choice",
       "option4": "4 Choice"
     }
+  },
+  {
+    "name": "button",
+    "value": "Skip"
+  },
+  {
+    "name": "button",
+    "value": "Next"
   }
 ]
