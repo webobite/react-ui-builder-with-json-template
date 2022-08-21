@@ -1,15 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { GET_ALL_COMPONENTS } from './utils/componentConfigs';
+import { componentProps, uiJson } from './utils';
+import Canvas from './uiEngine';
+import Layout from './components/Layout/Layout';
+// import Canvas from './uiEngine/Canvas';
 
-const root = ReactDOM.createRoot(
+const root = createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+// TODO: <Canvas /> is for the Layout make sure to uncomment the same to use that
+// TODO: <Layout /> is for the component to take help for writing the uiEngine in <Canvas /> component 
+
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} /> */}
+    <Layout />
   </React.StrictMode>
 );
 
