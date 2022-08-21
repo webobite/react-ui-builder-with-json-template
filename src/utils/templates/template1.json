@@ -5,6 +5,7 @@
     "layout": {
       "name": "horizontal",
       "renderer": "horizontal_v1",
+      "position": "row",
       "components": [
         {
           "name": "progress",
@@ -18,6 +19,7 @@
     "layout": {
       "name": "verical",
       "renderer": "vertical_v1",
+      "position": "column",
       "components": [
         {
           "name": "text",
@@ -41,6 +43,7 @@
     "layout": {
       "name": "horizontal",
       "renderer": "horizontal_v1",
+      "position": "row",
       "components": [
         {
           "name": "next",
