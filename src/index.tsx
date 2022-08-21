@@ -13,6 +13,9 @@ const root = createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+// TODO: <Canvas /> is for the Layout make sure to uncomment the same to use that
+// TODO: <Layout /> is for the component to take help for writing the uiEngine in <Canvas /> component 
+
 root.render(
   <React.StrictMode>
     {/* <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} /> */}
