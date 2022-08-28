@@ -18,8 +18,8 @@ const root = createRoot(
 
 root.render(
   <React.StrictMode>
-    {/* <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} /> */}
-    <Layout />
+    <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} />
+    {/* <Layout /> */}
   </React.StrictMode>
 );
 

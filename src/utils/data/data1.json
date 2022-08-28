@@ -1,31 +1,62 @@
 [
   {
     "name": "progress",
-    "value": "50%"
-  },
-  {
-    "name": "text",
-    "value": "The first problem title"
-  },
-  {
-    "name": "image",
-    "value": ".image/some.png"
-  },
-  {
-    "name": "multiple_choice",
-    "value": {
-      "option1": "First Choice",
-      "option2": "2 Choice",
-      "option3": "3 Choice",
-      "option4": "4 Choice"
+    "properties": {
+      "value": 50,
+      "variant": "determinate",
+      "color": "primary"
     }
   },
   {
-    "name": "button",
-    "value": "Skip"
+    "name": "text",
+    "properties": {
+      "content": "The first problem title"
+    }
   },
   {
-    "name": "button",
-    "value": "Next"
+    "name": "image",
+    "properties": {
+      "value": ".image/some.png"
+    }
+  },
+  {
+    "name": "multiple_choice",
+    "properties": {
+      "options": [
+        {
+          "label": "Option A",
+          "value": "A"
+        },
+        {
+          "label": "Option B",
+          "value": "B"
+        },
+        {
+          "label": "Option C",
+          "value": "C"
+        },
+        {
+          "label": "Option D",
+          "value": "D"
+        }
+      ],
+      "type": "checkbox"
+    }
+  },
+  {
+    "name": "skip",
+    "properties": {
+      "className": "layout-btn skip-btn",
+      "color": "secondary",
+      "label": "Skip"
+    }
+  },
+  {
+    "name": "next",
+    "properties": {
+      "className": "layout-btn next-btn",
+      "color": "primary",
+      "label": "Next"
+    }
   }
 ]
