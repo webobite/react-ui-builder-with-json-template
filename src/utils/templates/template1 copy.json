@@ -25,6 +25,11 @@
           "renderer": "text_v1"
         },
         {
+          "name": "image",
+          "type": "img",
+          "renderer": "image_v1"
+        },
+        {
           "name": "multiple_choice",
           "type": "custom",
           "renderer": "multiple_choice_v1"

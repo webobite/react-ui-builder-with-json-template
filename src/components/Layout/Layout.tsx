@@ -9,30 +9,34 @@ import "./layoutStyle.css";
 const Layout = () => {
   return (
     <div className="layout-wrapper">
-      <ProgressBar value={20} variant={"determinate"} color={"primary"} />
-      <Title content="The first problem title" />
-      <MultipleChoice
-        options={[
-          {
-            label: "Option A",
-            value: "A",
-          },
-          {
-            label: "Option B",
-            value: "B",
-          },
-          {
-            label: "Option C",
-            value: "C",
-          },
-          {
-            label: "Option D",
-            value: "D",
-          },
-        ]}
-        type="checkbox"
-      />
-      <div className="layout-btn-wrap">
+      <div className="header-wrap">
+        <ProgressBar value={20} variant={"determinate"} color={"primary"} />
+      </div>
+      <div className="body-wrap">
+        <Title content="The first problem title" />
+        <MultipleChoice
+          options={[
+            {
+              label: "Option A",
+              value: "A",
+            },
+            {
+              label: "Option B",
+              value: "B",
+            },
+            {
+              label: "Option C",
+              value: "C",
+            },
+            {
+              label: "Option D",
+              value: "D",
+            },
+          ]}
+          type="checkbox"
+        />
+      </div>
+      <div className="footer-wrap">
         <Button className="layout-btn skip-btn" color="secondary">
           Skip
         </Button>
