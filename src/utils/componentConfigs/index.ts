@@ -1,5 +1,5 @@
-import { Button } from "@material-ui/core";
 import Body from "../../components/Body";
+import { Button } from "../../components/ButtonComponent/Button";
 import Footer from "../../components/Footer";
 import MultipleChoice from "../../components/MultipleChoiceComponent/MultipleChoice";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";

@@ -129,7 +129,8 @@ const layout_to_ui_element_array = (
   propsData: any[]
 ) => {
   return sectionLayoutJson.components.map((component: IComponent) => {
-    let props = propsData.find((data) => data.name === component.name);
+    let props = propsData.find((data) => data.renderer === component.renderer);
+    console.log({props})
     if (props) {
       return render_ui_element(props, component);
     }

@@ -7,7 +7,6 @@
       "components": [
         {
           "name": "progress",
-          "type": "custom",
           "renderer": "progress_v1"
         }
       ]
@@ -21,12 +20,10 @@
       "components": [
         {
           "name": "text",
-          "type": "p",
           "renderer": "text_v1"
         },
         {
           "name": "multiple_choice",
-          "type": "custom",
           "renderer": "multiple_choice_v1"
         }
       ]
@@ -40,12 +37,10 @@
       "components": [
         {
           "name": "next",
-          "type": "button",
           "renderer": "next_v1"
         },
         {
           "name": "skip",
-          "type": "button",
           "renderer": "skip_v1"
         }
       ]

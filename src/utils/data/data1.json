@@ -1,6 +1,7 @@
 [
   {
     "name": "progress",
+    "renderer": "progress_v1",
     "properties": {
       "value": 50,
       "variant": "determinate",
@@ -9,6 +10,7 @@
   },
   {
     "name": "text",
+    "renderer": "text_v1",
     "properties": {
       "content": "The first problem title"
     }
@@ -21,6 +23,7 @@
   },
   {
     "name": "multiple_choice",
+    "renderer": "multiple_choice_v1",
     "properties": {
       "options": [
         {
@@ -45,17 +48,21 @@
   },
   {
     "name": "skip",
+    "renderer": "skip_v1",
     "properties": {
-      "className": "layout-btn skip-btn",
-      "color": "secondary",
+      "primary": false,
+      "backgroundColor": "red",
+      "size": "small",
       "label": "Skip"
     }
   },
   {
     "name": "next",
+    "renderer": "next_v1",
     "properties": {
-      "className": "layout-btn next-btn",
-      "color": "primary",
+      "primary": true,
+      "backgroundColor": "blue",
+      "size": "small",
       "label": "Next"
     }
   }
