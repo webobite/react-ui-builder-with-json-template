@@ -37,16 +37,6 @@ export const render_ui_element = (
       ...componentProps.properties,
     });
     return uiElement;
-
-    // switch (component.type) {
-    //   case "custom":
-
-    //   // break;
-
-    //   default:
-    //     return null;
-    //   // break;
-    // }
   }
 };
 
@@ -78,27 +68,6 @@ export const init = (componentLists: any, layoutConfig: any, data: any) => {
 };
 
 /**
- * Render header with layout json
- * @param headerLayoutJson
- * @param propsData
- * @returns
- */
-export const render_header_with_layout_json = (
-  headerLayoutJson: ILayout,
-  propsData: any[]
-) => {
-  let componentUIArray = layout_to_ui_element_array(
-    headerLayoutJson,
-    propsData
-  );
-  return React.createElement(
-    "div",
-    { className: "header-wrap" },
-    ...componentUIArray
-  );
-};
-
-/**
  * Render with layout json
  * @param bodyLayoutJson
  * @param propsData
@@ -106,14 +75,28 @@ export const render_header_with_layout_json = (
  * @returns
  */
 export const render_with_layout_json = (
-  bodyLayoutJson: ILayout,
+  layoutJson: ILayout,
   propsData: any[],
-  parentClassName: string | ""
+  parentClassName?: string | ""
 ) => {
-  let componentUIArray = layout_to_ui_element_array(bodyLayoutJson, propsData);
+  let renderDirectionClassName = parentClassName;
+  if (layoutJson) {
+    switch (layoutJson.renderer) {
+      case 'horizontal_v1':
+        renderDirectionClassName += ` horizontal-flex-render-wrap`;
+        break;
+      case 'vertical_v1':
+        renderDirectionClassName += ` vertical-flex-render-wrap`;
+        break;
+      default:
+        renderDirectionClassName += ` flex-render-wrap`;
+    }
+  }
+  let componentUIArray = layout_to_ui_element_array(layoutJson, propsData);
+  console.log({ renderDirectionClassName })
   return React.createElement(
     "div",
-    { className: `${parentClassName}` },
+    { className: `${renderDirectionClassName}` },
     ...componentUIArray
   );
 };
@@ -130,7 +113,6 @@ const layout_to_ui_element_array = (
 ) => {
   return sectionLayoutJson.components.map((component: IComponent) => {
     let props = propsData.find((data) => data.renderer === component.renderer);
-    console.log({props})
     if (props) {
       return render_ui_element(props, component);
     }
