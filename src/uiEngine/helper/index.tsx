@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import React from "react";
 import { GET_ALL_COMPONENTS } from "../../utils/componentConfigs";
 import { IComponent, IComponentProps, ILayout } from "../../utils/Models";
@@ -32,7 +33,7 @@ export const render_ui_element = (
     let uiElement;
     // find component to be rendered
     // @ts-ignore
-    let componentToRender = GET_ALL_COMPONENTS[`${component.name}`];
+    let componentToRender = GET_ALL_COMPONENTS[`${component.renderer}`];
     uiElement = React.createElement(componentToRender, {
       ...componentProps.properties,
     });
@@ -79,26 +80,41 @@ export const render_with_layout_json = (
   propsData: any[],
   parentClassName?: string | ""
 ) => {
-  let renderDirectionClassName = parentClassName;
+  let direction = "";
   if (layoutJson) {
     switch (layoutJson.renderer) {
       case 'horizontal_v1':
-        renderDirectionClassName += ` horizontal-flex-render-wrap`;
+        direction = `row`;
         break;
       case 'vertical_v1':
-        renderDirectionClassName += ` vertical-flex-render-wrap`;
+        direction = `column`;
         break;
       default:
-        renderDirectionClassName += ` flex-render-wrap`;
+        direction = `row`;
     }
   }
   let componentUIArray = layout_to_ui_element_array(layoutJson, propsData);
-  console.log({ renderDirectionClassName })
+  // TODO: When tried using Box from Material UI, it is was not rendering properly on the UI
   return React.createElement(
-    "div",
-    { className: `${renderDirectionClassName}` },
+    Box,
+    {
+      sx: {
+        display: 'flex',
+        flexDirection: direction,
+        p: 1,
+        m: 1,
+      }
+    },
     ...componentUIArray
-  );
+  )
+  // return React.createElement(
+  //   "div",
+  //   {
+  //     style: {display: "flex", flexDirection: direction},
+  //     className: parentClassName
+  //   },
+  //   ...componentUIArray
+  // )
 };
 
 /**
@@ -113,6 +129,8 @@ const layout_to_ui_element_array = (
 ) => {
   return sectionLayoutJson.components.map((component: IComponent) => {
     let props = propsData.find((data) => data.renderer === component.renderer);
+    console.log({ props, component, propsData });
+
     if (props) {
       return render_ui_element(props, component);
     }

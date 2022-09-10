@@ -1,17 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { uiJson } from './utils';
+import { componentProps, uiJson } from './utils';
+import Canvas from './uiEngine';
+import { GET_ALL_COMPONENTS } from './utils/componentConfigs';
 
 function App() {
   return (
-    <div className="App">
-      <header className="header">
-        <p>
-          {JSON.stringify(uiJson)}
-        </p>
-      </header>
-    </div>
+    <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} />
   );
 }
 

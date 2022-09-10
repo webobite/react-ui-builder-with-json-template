@@ -47,26 +47,6 @@
     }
   },
   {
-    "name": "control_option",
-    "renderer": "control_option_v1",
-    "properties": {
-      "buttonDetails": [
-        {
-          "label": "Skip",
-          "color": "secondary",
-          "variant": "contained",
-          "size": "small"
-        },
-        {
-          "label": "Next",
-          "color": "primary",
-          "variant": "outlined",
-          "size": "small"
-        }
-      ]
-    }
-  },
-  {
     "name": "skip",
     "renderer": "skip_v1",
     "properties": {
@@ -84,18 +64,6 @@
       "backgroundColor": "blue",
       "size": "small",
       "label": "Next"
-    }
-  },
-  {
-    "name": "image_placeholder",
-    "renderer": "image_placeholder_v1",
-    "properties": {
-      "height": "20%",
-      "width": "20%",
-      "source": "https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0",
-      "alt": "dog",
-      "label": "Pet Dog",
-      "labelPosition": "center"
     }
   }
 ]

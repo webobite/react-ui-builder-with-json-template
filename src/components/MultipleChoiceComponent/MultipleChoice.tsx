@@ -1,11 +1,8 @@
-import {
-  Box,
-  Checkbox,
-  FormControlLabel,
-  FormGroup,
-  Input,
-  Radio,
-} from "@material-ui/core";
+import Box from "@mui/material/Box";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import Radio from "@mui/material/Radio";
 import React, { useState } from "react";
 import "./multipleChoice.css";
 

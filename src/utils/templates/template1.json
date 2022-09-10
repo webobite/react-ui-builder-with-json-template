@@ -1,9 +1,8 @@
 {
   "header": {
     "layout": {
-      "name": "horizontal",
-      "renderer": "horizontal_v1",
-      "position": "row",
+      "name": "verical",
+      "renderer": "vertical_v1",
       "components": [
         {
           "name": "progress",
@@ -16,11 +15,14 @@
     "layout": {
       "name": "verical",
       "renderer": "vertical_v1",
-      "position": "column",
       "components": [
         {
           "name": "text",
           "renderer": "text_v1"
+        },
+        {
+          "name": "image_placeholder",
+          "renderer": "image_placeholder_v1"
         },
         {
           "name": "multiple_choice",
@@ -33,15 +35,10 @@
     "layout": {
       "name": "horizontal",
       "renderer": "horizontal_v1",
-      "position": "row",
       "components": [
         {
-          "name": "next",
-          "renderer": "next_v1"
-        },
-        {
-          "name": "skip",
-          "renderer": "skip_v1"
+          "name": "control_option",
+          "renderer": "control_option_v1"
         }
       ]
     }
