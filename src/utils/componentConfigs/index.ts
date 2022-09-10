@@ -14,6 +14,7 @@ export const GET_ALL_COMPONENTS = {
     "Footer" : Footer,
     "progress_v1": ProgressBar,
     "multiple_choice_v1": MultipleChoice,
+    "multiple_choice_v3": MultipleChoice,
     "next_v1": Button,
     "skip_v1": Button,
     "control_option_v1": ControlOption,

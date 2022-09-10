@@ -1,0 +1,42 @@
+{
+  "header": {
+    "layout": {
+      "name": "verical",
+      "renderer": "vertical_v1",
+      "components": [
+        {
+          "name": "progress",
+          "renderer": "progress_v1"
+        }
+      ]
+    }
+  },
+  "body": {
+    "layout": {
+      "name": "verical",
+      "renderer": "vertical_v1",
+      "components": [
+        {
+          "name": "text",
+          "renderer": "text_v1"
+        },
+        {
+          "name": "multiple_choice",
+          "renderer": "multiple_choice_v3"
+        }
+      ]
+    }
+  },
+  "footer": {
+    "layout": {
+      "name": "horizontal",
+      "renderer": "horizontal_v1",
+      "components": [
+        {
+          "name": "control_option",
+          "renderer": "control_option_v1"
+        }
+      ]
+    }
+  }
+}
