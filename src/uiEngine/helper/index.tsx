@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import React from "react";
 import { GET_ALL_COMPONENTS } from "../../utils/componentConfigs";
 import { IComponent, IComponentProps, ILayout } from "../../utils/Models";
@@ -32,21 +33,11 @@ export const render_ui_element = (
     let uiElement;
     // find component to be rendered
     // @ts-ignore
-    let componentToRender = GET_ALL_COMPONENTS[`${component.name}`];
+    let componentToRender = GET_ALL_COMPONENTS[`${component.renderer}`];
     uiElement = React.createElement(componentToRender, {
       ...componentProps.properties,
     });
     return uiElement;
-
-    // switch (component.type) {
-    //   case "custom":
-
-    //   // break;
-
-    //   default:
-    //     return null;
-    //   // break;
-    // }
   }
 };
 
@@ -78,27 +69,6 @@ export const init = (componentLists: any, layoutConfig: any, data: any) => {
 };
 
 /**
- * Render header with layout json
- * @param headerLayoutJson
- * @param propsData
- * @returns
- */
-export const render_header_with_layout_json = (
-  headerLayoutJson: ILayout,
-  propsData: any[]
-) => {
-  let componentUIArray = layout_to_ui_element_array(
-    headerLayoutJson,
-    propsData
-  );
-  return React.createElement(
-    "div",
-    { className: "header-wrap" },
-    ...componentUIArray
-  );
-};
-
-/**
  * Render with layout json
  * @param bodyLayoutJson
  * @param propsData
@@ -106,16 +76,45 @@ export const render_header_with_layout_json = (
  * @returns
  */
 export const render_with_layout_json = (
-  bodyLayoutJson: ILayout,
+  layoutJson: ILayout,
   propsData: any[],
-  parentClassName: string | ""
+  parentClassName?: string | ""
 ) => {
-  let componentUIArray = layout_to_ui_element_array(bodyLayoutJson, propsData);
+  let direction = "";
+  if (layoutJson) {
+    switch (layoutJson.renderer) {
+      case 'horizontal_v1':
+        direction = `row`;
+        break;
+      case 'vertical_v1':
+        direction = `column`;
+        break;
+      default:
+        direction = `row`;
+    }
+  }
+  let componentUIArray = layout_to_ui_element_array(layoutJson, propsData);
+  // TODO: When tried using Box from Material UI, it is was not rendering properly on the UI
   return React.createElement(
-    "div",
-    { className: `${parentClassName}` },
+    Box,
+    {
+      sx: {
+        display: 'flex',
+        flexDirection: direction,
+        p: 1,
+        m: 1,
+      }
+    },
     ...componentUIArray
-  );
+  )
+  // return React.createElement(
+  //   "div",
+  //   {
+  //     style: {display: "flex", flexDirection: direction},
+  //     className: parentClassName
+  //   },
+  //   ...componentUIArray
+  // )
 };
 
 /**
@@ -129,7 +128,9 @@ const layout_to_ui_element_array = (
   propsData: any[]
 ) => {
   return sectionLayoutJson.components.map((component: IComponent) => {
-    let props = propsData.find((data) => data.name === component.name);
+    let props = propsData.find((data) => data.renderer === component.renderer);
+    console.log({ props, component, propsData });
+
     if (props) {
       return render_ui_element(props, component);
     }

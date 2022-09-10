@@ -1,0 +1,16 @@
+/* .layout-wrapper {
+    border: 1px solid;
+} */
+.flex-render-wrap {
+    display: flex;
+}
+
+.vertical-flex-render-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-flex-render-wrap {
+    display: flex;
+    flex-direction: row;
+}

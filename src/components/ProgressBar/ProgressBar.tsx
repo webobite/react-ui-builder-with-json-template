@@ -1,8 +1,9 @@
 import React from "react";
 import "./progressBar.css";
-import LinearProgress, {
-  LinearProgressProps,
-} from "@material-ui/core/LinearProgress";
+import LinearProgress, { LinearProgressProps } from "@mui/material/LinearProgress";
+// import LinearProgress, {
+//   LinearProgressProps,
+// } from "@material-ui/core/LinearProgress";
 interface IProgressBar {
   /**
    * value of the progress bar

@@ -1,9 +1,9 @@
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import React from "react";
 import MultipleChoice from "../MultipleChoiceComponent/MultipleChoice";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import Title from "../TitleComponent/Title";
-import "./layoutStyle.css";
+// import "./layoutStyle.css";
 //TEST the layout with normal rendering
 
 const Layout = () => {
