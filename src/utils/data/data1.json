@@ -47,6 +47,31 @@
     }
   },
   {
+    "name": "multiple_choice",
+    "renderer": "multiple_choice_v3",
+    "properties": {
+      "options": [
+        {
+          "label": "Option A",
+          "value": "A"
+        },
+        {
+          "label": "Option B",
+          "value": "B"
+        },
+        {
+          "label": "Option C",
+          "value": "C"
+        },
+        {
+          "label": "Option D",
+          "value": "D"
+        }
+      ],
+      "type": "radio"
+    }
+  },
+  {
     "name": "control_option",
     "renderer": "control_option_v1",
     "properties": {

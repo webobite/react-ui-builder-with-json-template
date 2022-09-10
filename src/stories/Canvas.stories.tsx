@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // import { Button } from './Button';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
-import { componentProps, uiJson } from '../utils';
+import { componentProps, uiJson, uiJson2, uiJson3 } from '../utils';
 import { GET_ALL_COMPONENTS } from '../utils/componentConfigs';
 import Canvas from '../uiEngine';
 
@@ -26,5 +26,21 @@ Variation1.args = {
   componentProps: componentProps,
   getComponent: GET_ALL_COMPONENTS,
   layoutConfig: uiJson
+};
+
+export const Variation2 = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Variation2.args = {
+  componentProps: componentProps,
+  getComponent: GET_ALL_COMPONENTS,
+  layoutConfig: uiJson2
+};
+
+export const Variation3 = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Variation3.args = {
+  componentProps: componentProps,
+  getComponent: GET_ALL_COMPONENTS,
+  layoutConfig: uiJson3
 };
 
