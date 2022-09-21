@@ -15,3 +15,9 @@ export interface IComponentProps {
   name: string
   properties?: any
 }
+
+export interface ILocalStorages {
+  name: string,
+  email: string,
+  profilePic: string
+}
