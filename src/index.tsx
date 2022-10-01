@@ -7,6 +7,7 @@ import { GET_ALL_COMPONENTS } from './utils/componentConfigs';
 import { componentProps, uiJson } from './utils';
 import Canvas from './uiEngine';
 import Layout from './components/Layout/Layout';
+import StartQuiz from './screens/quiz/StartQuiz';
 // import Canvas from './uiEngine/Canvas';
 
 const root = createRoot(
@@ -19,8 +20,9 @@ const root = createRoot(
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} />
+    {/* <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} /> */}
     {/* <Layout /> */}
+    <StartQuiz />
   </React.StrictMode>
 );
 
