@@ -15,6 +15,11 @@ import Toolbar from "@mui/material/Toolbar";
 import ReactModal from "react-modal";
 import React, { useState } from "react";
 import "./common.css";
+import QuizContentScreen from "../../components/QuizApp/QuizContentScreen";
+import { questionGeneraterWithJSONFormat } from "../../utils/quiz/utils";
+import { jsQuestions } from "../../utils/quiz/utils/questions";
+import { componentProps, uiJson } from "../../utils";
+import { GET_ALL_COMPONENTS } from "../../utils/componentConfigs";
 
 const StartQuiz = () => {
   const [OpenTestModal, setOpenTestModal] = useState(false);
@@ -41,6 +46,9 @@ const StartQuiz = () => {
     createData("Question Not Answered", 0),
   ];
 
+  console.log(questionGeneraterWithJSONFormat(jsQuestions));
+  
+
   return (
     <Box className="main-layout-wrap">
       <AppBar position="static">
@@ -52,7 +60,8 @@ const StartQuiz = () => {
         </Toolbar>
       </AppBar>
       <div className="quiz-start-btn-wrap">
-        <ReactModal isOpen={OpenTestModal} contentLabel="Minimal Modal Example">
+        <ReactModal isOpen={OpenTestModal} contentLabel="Minimal Modal Example" ariaHideApp={false}>
+          <QuizContentScreen componentProperties={componentProps} getComponent={GET_ALL_COMPONENTS} uiJSON={uiJson} />
           <button onClick={handleCloseFromModal}>Close Modal</button>
         </ReactModal>
         <div className="quiz-info-wrapper">
