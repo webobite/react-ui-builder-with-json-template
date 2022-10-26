@@ -1,5 +1,4 @@
 import React from "react";
-import { signInWithGoogle } from "../../../firebase/firebase";
 
 interface ISignInWithGoogle {
     buttonLabel?: string | "Sign in with Google";
@@ -8,7 +7,7 @@ interface ISignInWithGoogle {
 const SignInWithGoogleButton = (props: ISignInWithGoogle) => {
     const { buttonLabel } = props;
     return (
-        <button className="google-sign-in-btn" onClick={signInWithGoogle}>
+        <button className="google-sign-in-btn" onClick={()=>{}}>
             {buttonLabel}
         </button>
     );
