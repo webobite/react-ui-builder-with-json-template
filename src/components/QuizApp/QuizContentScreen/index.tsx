@@ -1,7 +1,5 @@
 import React from 'react'
 import Canvas from '../../../uiEngine';
-import { componentProps, uiJson } from '../../../utils';
-import { GET_ALL_COMPONENTS } from '../../../utils/componentConfigs';
 
 interface IQuizContentScreen {
   componentProperties: any,

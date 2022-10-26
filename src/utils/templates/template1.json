@@ -1,46 +1,49 @@
 {
-  "header": {
-    "layout": {
-      "name": "verical",
-      "renderer": "vertical_v1",
-      "components": [
-        {
-          "name": "progress",
-          "renderer": "progress_v1"
-        }
-      ]
-    }
-  },
-  "body": {
-    "layout": {
-      "name": "verical",
-      "renderer": "vertical_v1",
-      "components": [
-        {
-          "name": "text",
-          "renderer": "text_v1"
-        },
-        {
-          "name": "image_placeholder",
-          "renderer": "image_placeholder_v1"
-        },
-        {
-          "name": "multiple_choice",
-          "renderer": "multiple_choice_v1"
-        }
-      ]
-    }
-  },
-  "footer": {
-    "layout": {
-      "name": "horizontal",
-      "renderer": "horizontal_v1",
-      "components": [
-        {
-          "name": "control_option",
-          "renderer": "control_option_v1"
-        }
-      ]
+  "templateIdentifier": "template_id1",
+  "layout": {
+    "header": {
+      "layout": {
+        "name": "verical",
+        "renderer": "vertical_v1",
+        "components": [
+          {
+            "name": "progress",
+            "renderer": "progress_v1"
+          }
+        ]
+      }
+    },
+    "body": {
+      "layout": {
+        "name": "verical",
+        "renderer": "vertical_v1",
+        "components": [
+          {
+            "name": "text",
+            "renderer": "text_v1"
+          },
+          {
+            "name": "image_placeholder",
+            "renderer": "image_placeholder_v1"
+          },
+          {
+            "name": "multiple_choice",
+            "renderer": "multiple_choice_v1"
+          }
+        ]
+      }
+    },
+    "footer": {
+      "layout": {
+        "name": "horizontal",
+        "renderer": "horizontal_v1",
+        "components": [
+          {
+            "name": "control_option",
+            "renderer": "control_option_v1"
+          }
+        ]
+      }
     }
   }
 }

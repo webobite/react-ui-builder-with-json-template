@@ -53,12 +53,12 @@ export const init = (componentLists: any, layoutConfig: any, data: any) => {
   const componentIndexName: string[] =
     check_length_of_object_return_its_keys_of_content_in_array(componentLists);
   const sectionNames: string[] =
-    check_length_of_object_return_its_keys_of_content_in_array(layoutConfig);
+    check_length_of_object_return_its_keys_of_content_in_array(layoutConfig.layout);
 
   if (componentIndexName && sectionNames) {
     // if component is present --> render UI
     let sectionWiseUIArray = sectionNames.map((sectionName: string) => {
-      let layoutJson = layoutConfig[`${sectionName}`].layout;
+      let layoutJson = layoutConfig.layout[`${sectionName}`].layout;
       return render_with_layout_json(layoutJson, data, `${sectionName}-wrap`);
     });
     return sectionWiseUIArray;
