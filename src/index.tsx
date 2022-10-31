@@ -7,6 +7,7 @@ import { GET_ALL_COMPONENTS } from './utils/componentConfigs';
 import { componentProps, uiJson } from './utils';
 import Canvas from './uiEngine';
 import Layout from './components/Layout/Layout';
+import AuthContextProvider from './context/AuthContextProvider';
 // import Canvas from './uiEngine/Canvas';
 
 const root = createRoot(
@@ -17,11 +18,16 @@ const root = createRoot(
 // TODO: <Layout /> is for the component to take help for writing the uiEngine in <Canvas /> component 
 
 root.render(
-  <React.StrictMode>
-    {/* <App /> */}
-    <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} />
+  <>
+  {/* //<React.StrictMode> */}
+    {/* */}
+    <AuthContextProvider>
+    <App />
+    {/* <Canvas componentProps={componentProps} getComponent={GET_ALL_COMPONENTS} layoutConfig={uiJson} />  */}
+    </AuthContextProvider>
     {/* <Layout /> */}
-  </React.StrictMode>
+  {/* //</React.StrictMode> */}
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
