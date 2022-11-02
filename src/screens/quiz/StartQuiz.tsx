@@ -18,13 +18,17 @@ import "./common.css";
 import QuizContentScreen from "../../components/QuizApp/QuizContentScreen";
 import { questionGeneraterWithJSONFormat } from "../../utils/quiz/utils";
 import { jsQuestions } from "../../utils/quiz/utils/questions";
-import { componentProps, uiJson } from "../../utils";
+import { componentProps, templateList, uiJson } from "../../utils";
 import { GET_ALL_COMPONENTS } from "../../utils/componentConfigs";
+import QuestionSlider from "../../components/QuizApp/QuestionSlider";
+import QuestionListView from "../../components/QuizApp/QuestionListView";
 
 const StartQuiz = () => {
   const [OpenTestModal, setOpenTestModal] = useState(false);
+  const [modalContent, setModalContent] = useState('');
 
-  const startTestButtonHandler = () => {
+  const startTestButtonHandler = (viewToRender: 'listView' | 'slideView') => {
+    setModalContent(viewToRender);
     setOpenTestModal(true);
   };
 
@@ -46,8 +50,9 @@ const StartQuiz = () => {
     createData("Question Not Answered", 0),
   ];
 
-  console.log(questionGeneraterWithJSONFormat(jsQuestions));
-  
+  // console.log(questionGeneraterWithJSONFormat(jsQuestions));
+  const componentsData = questionGeneraterWithJSONFormat(jsQuestions)
+
 
   return (
     <Box className="main-layout-wrap">
@@ -61,7 +66,12 @@ const StartQuiz = () => {
       </AppBar>
       <div className="quiz-start-btn-wrap">
         <ReactModal isOpen={OpenTestModal} contentLabel="Minimal Modal Example" ariaHideApp={false}>
-          <QuizContentScreen componentProperties={componentProps} getComponent={GET_ALL_COMPONENTS} uiJSON={uiJson} />
+          {
+            modalContent && modalContent === 'slideView' ? <QuestionSlider getComponentList={GET_ALL_COMPONENTS} layoutConfigs={templateList} componentsData={componentsData} /> : null
+          }
+          {
+            modalContent && modalContent === 'listView' ? <QuestionListView getComponentList={GET_ALL_COMPONENTS} layoutConfigs={templateList} componentsData={componentsData} /> : null
+          }
           <button onClick={handleCloseFromModal}>Close Modal</button>
         </ReactModal>
         <div className="quiz-info-wrapper">
@@ -70,7 +80,7 @@ const StartQuiz = () => {
               <Table sx={{ minWidth: 150 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Test Information</TableCell>
+                    <TableCell>Test Information (Demo Data rendered)</TableCell>
                     <TableCell align="right">Values</TableCell>
                   </TableRow>
                 </TableHead>
@@ -94,9 +104,17 @@ const StartQuiz = () => {
             className="quiz-start-btn"
             variant="contained"
             color="success"
-            onClick={startTestButtonHandler}
+            onClick={() => startTestButtonHandler('slideView')}
           >
-            Start Test
+            Start Slide View Test
+          </Button>
+          <Button
+            className="quiz-start-btn"
+            variant="contained"
+            color="success"
+            onClick={() => startTestButtonHandler('listView')}
+          >
+            Start in List View Test
           </Button>
         </div>
 

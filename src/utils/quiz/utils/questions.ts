@@ -21,6 +21,7 @@ export const jsQuestions = [
             },
         ],
         selectionType: 'radio',
+        templateIdentifier: 'template_id3'
     },
     {
         id: 2,
@@ -44,6 +45,7 @@ export const jsQuestions = [
             },
         ],
         selectionType: 'radio',
+        templateIdentifier: 'template_id3'
     },
     {
         id: 3,
@@ -66,7 +68,8 @@ export const jsQuestions = [
                 label: "None of the above"
             },
         ],
-        selectionType: 'radio',
+        selectionType: 'checkbox',
+        templateIdentifier: 'template_id3'
     },
     {
         id: 4,
@@ -90,6 +93,7 @@ export const jsQuestions = [
             },
         ],
         selectionType: 'radio',
+        templateIdentifier: 'template_id3'
     },
     {
         id: 5,
@@ -113,5 +117,6 @@ export const jsQuestions = [
             },
         ],
         selectionType: 'radio',
+        templateIdentifier: 'template_id3'
     }
 ]

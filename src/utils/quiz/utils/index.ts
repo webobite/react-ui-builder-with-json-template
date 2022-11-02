@@ -10,6 +10,7 @@ export interface IQuestionsFormats {
   question: string;
   options: IOptionsFormats[];
   selectionType: string;
+  templateIdentifier: string;
 }
 
 /**
@@ -17,18 +18,20 @@ export interface IQuestionsFormats {
  * @param questionList : IQuestionsFormats[] (type) list of questions for MCQ questions
  */
 export const questionGeneraterWithJSONFormat = (questionList: any[]) => {
-  let formatedJSONScreen = [];
   let formatedQuestionList = questionList.map(
     (questionData: IQuestionsFormats, index: number) => {
       if (questionData) {
         let tempJSONScreen = [];
+        tempJSONScreen.push({'templateIdentifier': questionData.templateIdentifier})
         // create progress component
         tempJSONScreen.push(
           getProgressComponentJSON(
             "progress",
             "progress_v1",
             DETERMINATE_VARIANT,
-            PRIMARY_SELECTION
+            PRIMARY_SELECTION,
+            // TODO: Need to discuss this part during demo
+            index * 10
           )
         );
         // create text component
@@ -48,12 +51,10 @@ export const questionGeneraterWithJSONFormat = (questionList: any[]) => {
         tempJSONScreen.push(
           getControlOptionComponentJSON("control_option", "control_option_v1")
         );
-
-        formatedJSONScreen[index] = tempJSONScreen;
         return tempJSONScreen;
       }
     }
-  );
+  );  
   return formatedQuestionList;
 };
 
@@ -69,13 +70,14 @@ export const getProgressComponentJSON = (
   wrapperName: string,
   componentName: string,
   variant: string,
-  color: string
+  color: string,
+  progressValue: number
 ) => {
   return {
     name: wrapperName,
     renderer: componentName,
     properties: {
-      value: 50,
+      value: progressValue,
       variant: variant,
       color: color,
     },
