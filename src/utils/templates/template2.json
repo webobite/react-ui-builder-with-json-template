@@ -24,7 +24,7 @@
           },
           {
             "name": "multiple_choice",
-            "renderer": "multiple_choice_v1"
+            "renderer": "multiple_choice_v3"
           }
         ]
       }
@@ -36,7 +36,7 @@
         "components": [
           {
             "name": "control_option",
-            "renderer": "control_option_v1"
+            "renderer": "control_option_v2"
           }
         ]
       }

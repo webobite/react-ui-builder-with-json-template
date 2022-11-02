@@ -23,14 +23,14 @@ Primary.args = {
   buttonDetails: [
     {
       label: "Skip",
-      onClick: (value) => console.log("value of Skip ", value),
+      onClick: () => console.log("value of Skip "),
       color: "secondary",
       variant: "contained",
       size: "small",
     },
     {
       label: "Next",
-      onClick: (value) => console.log("value of Next ", value),
+      onClick: () => console.log("value of Next "),
       color: "primary",
       variant: "outlined",
       size: "small"

@@ -28,7 +28,7 @@ export const check_length_of_object_return_its_keys_of_content_in_array = (
 export const render_ui_element = (
   componentProps: IComponentProps,
   component: IComponent
-) => {
+) => {  
   if (component && componentProps && GET_ALL_COMPONENTS) {
     let uiElement;
     // find component to be rendered
@@ -53,7 +53,7 @@ export const init = (componentLists: any, layoutConfig: any, data: any) => {
   const componentIndexName: string[] =
     check_length_of_object_return_its_keys_of_content_in_array(componentLists);
   const sectionNames: string[] =
-    check_length_of_object_return_its_keys_of_content_in_array(layoutConfig.layout);
+    check_length_of_object_return_its_keys_of_content_in_array(layoutConfig.layout);    
 
   if (componentIndexName && sectionNames) {
     // if component is present --> render UI
@@ -129,10 +129,12 @@ const layout_to_ui_element_array = (
 ) => {
   return sectionLayoutJson.components.map((component: IComponent) => {
     let props = propsData.find((data) => data.renderer === component.renderer);
-    // console.log({ props, component, propsData });
-
     if (props) {
       return render_ui_element(props, component);
     }
   });
 };
+
+export const layoutFinderByTemplateIdentifier = (layoutConfigs: any[], templateIdentifier: string) => {
+  return layoutConfigs.filter(layout => layout.templateIdentifier === templateIdentifier)[0]
+}

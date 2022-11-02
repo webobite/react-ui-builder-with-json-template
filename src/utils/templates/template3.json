@@ -36,7 +36,7 @@
         "components": [
           {
             "name": "control_option",
-            "renderer": "control_option_v1"
+            "renderer": "control_option_v2"
           }
         ]
       }
