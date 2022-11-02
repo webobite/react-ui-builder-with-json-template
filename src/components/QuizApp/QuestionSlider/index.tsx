@@ -76,52 +76,6 @@ const prevSlide = () => {
       />
     </div>
   )
-
-  const renderQuestionsInListFormat = () => {
-    return (
-      <div className="question-list">
-        {
-          componentsData.map((questionData, index) => {
-            return (
-              <div key={index}>
-                <QuizContentScreen
-                  componentProperties={questionData}
-                  getComponent={getComponentList}
-                  uiJSON={
-                    layoutFinderByTemplateIdentifier(layoutConfigs, questionData[0].templateIdentifier)
-                  }
-                />
-              </div>
-            )
-          })
-        }
-      </div>
-    )
-  }
-
-  // return (
-  //   <>
-  //     {renderQuestionsInListFormat()}
-  //     <ControlOption
-  //       buttonDetails={[
-  //         {
-  //           color: 'secondary',
-  //           label: 'Previous',
-  //           onClick: (value: any) => console.log("value of Skip ", value),
-  //           size: 'small',
-  //           variant: 'contained'
-  //         },
-  //         {
-  //           color: 'primary',
-  //           label: 'Next',
-  //           onClick: (value: any) => console.log("value of Next ", value),
-  //           size: 'small',
-  //           variant: 'outlined'
-  //         }
-  //       ]}
-  //     />
-  //   </>
-  // )
 }
 
 export default QuestionSlider
