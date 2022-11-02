@@ -9,6 +9,7 @@ export interface IQuestionsFormats {
   id: number;
   question: string;
   options: IOptionsFormats[];
+  imagePlaceholder: any;
   selectionType: string;
   templateIdentifier: string;
 }
@@ -21,8 +22,12 @@ export const questionGeneraterWithJSONFormat = (questionList: any[]) => {
   let formatedQuestionList = questionList.map(
     (questionData: IQuestionsFormats, index: number) => {
       if (questionData) {
+        console.log({questionData});
+        
         let tempJSONScreen = [];
-        tempJSONScreen.push({'templateIdentifier': questionData.templateIdentifier})
+        tempJSONScreen.push({
+          templateIdentifier: questionData.templateIdentifier,
+        });
         // create progress component
         tempJSONScreen.push(
           getProgressComponentJSON(
@@ -35,26 +40,37 @@ export const questionGeneraterWithJSONFormat = (questionList: any[]) => {
           )
         );
         // create text component
-        tempJSONScreen.push(
-          getTextComponentJSON("text", "text_v1", questionData.question)
-        );
+        if (questionData.question) {
+          tempJSONScreen.push(
+            getTextComponentJSON("text", "text_v1", questionData.question)
+          );
+        }
+
+        if(questionData.imagePlaceholder) {
+          tempJSONScreen.push(
+            getImageComponentJson("image_placeholder", "image_placeholder_v1", questionData.imagePlaceholder)
+          );
+        }
         // create multiple choice component
-        tempJSONScreen.push(
-          getMultipleChoiceComponentJSON(
-            "multiple_choice",
-            "multiple_choice_v3",
-            questionData.options,
-            questionData.selectionType
-          )
-        );
+        if (questionData.options && questionData.selectionType) {
+          tempJSONScreen.push(
+            getMultipleChoiceComponentJSON(
+              "multiple_choice",
+              "multiple_choice_v3",
+              questionData.options,
+              questionData.selectionType
+            )
+          );
+        }
+
         // create control_option component json
-        tempJSONScreen.push(
-          getControlOptionComponentJSON("control_option", "control_option_v1")
-        );
+        // tempJSONScreen.push(
+        //   getControlOptionComponentJSON("control_option", "control_option_v1")
+        // );
         return tempJSONScreen;
       }
     }
-  );  
+  );
   return formatedQuestionList;
 };
 
@@ -106,10 +122,10 @@ export const getTextComponentJSON = (
 };
 
 /**
- * 
- * @param wrapperName 
- * @param componentName 
- * @returns 
+ *
+ * @param wrapperName
+ * @param componentName
+ * @returns
  */
 export const getControlOptionComponentJSON = (
   wrapperName: string,
@@ -138,12 +154,12 @@ export const getControlOptionComponentJSON = (
 };
 
 /**
- * 
- * @param wrapperName 
- * @param componentName 
- * @param mcqOptions 
- * @param selectionType 
- * @returns 
+ *
+ * @param wrapperName
+ * @param componentName
+ * @param mcqOptions
+ * @param selectionType
+ * @returns
  */
 export const getMultipleChoiceComponentJSON = (
   wrapperName: string,
@@ -157,6 +173,32 @@ export const getMultipleChoiceComponentJSON = (
     properties: {
       options: mcqOptions,
       type: selectionType,
+    },
+  };
+};
+
+export const getImageComponentJson = (
+  wrapperName: string,
+  componentName: string,
+  imageProperties: {
+    height: any;
+    width: any;
+    source: any;
+    alt: any;
+    label: any;
+    labelPosition: any;
+  }
+) => {
+  return {
+    name: wrapperName,
+    renderer: componentName,
+    properties: {
+      height: imageProperties.height,
+      width: imageProperties.width,
+      source: imageProperties.source,
+      alt: imageProperties.alt,
+      label: imageProperties.label,
+      labelPosition: imageProperties.labelPosition,
     },
   };
 };
