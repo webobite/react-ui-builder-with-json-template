@@ -13,7 +13,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import ReactModal from "react-modal";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./common.css";
 import QuizContentScreen from "../../components/QuizApp/QuizContentScreen";
 import { questionGeneraterWithJSONFormat } from "../../utils/quiz/utils";
@@ -22,11 +22,12 @@ import { componentProps, templateList, uiJson } from "../../utils";
 import { GET_ALL_COMPONENTS } from "../../utils/componentConfigs";
 import QuestionSlider from "../../components/QuizApp/QuestionSlider";
 import QuestionListView from "../../components/QuizApp/QuestionListView";
+import { AuthContext } from "../../context/AuthContectProvider";
 
 const StartQuiz = () => {
   const [OpenTestModal, setOpenTestModal] = useState(false);
   const [modalContent, setModalContent] = useState('');
-
+  const authContext = useContext(AuthContext);
   const startTestButtonHandler = (viewToRender: 'listView' | 'slideView') => {
     setModalContent(viewToRender);
     setOpenTestModal(true);
@@ -61,7 +62,7 @@ const StartQuiz = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Quiz App
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={authContext.logout}>Log out</Button>
         </Toolbar>
       </AppBar>
       <div className="quiz-start-btn-wrap">
