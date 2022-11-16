@@ -8,3 +8,6 @@ export const uiJson = template1;
 export const uiJson2 = template2;
 export const uiJson3 = template3;
 export const componentProps = data1;
+
+
+export const templateList = [template1, template2, template3];

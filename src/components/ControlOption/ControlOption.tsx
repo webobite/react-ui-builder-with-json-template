@@ -6,7 +6,7 @@ import './ControlOption.css';
 
 interface IButtonDetails {
   label: string | "Sample";
-  onClick: (value: any) => void;
+  onClick: () => void;
   color: "primary" | "inherit" | "secondary" | "success" | "error" | "info" | "warning" | undefined;
   variant: "text" | "outlined" | "contained" | undefined;
   size: "small" | "medium" | "large" | undefined
